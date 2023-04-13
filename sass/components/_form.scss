@@ -1,0 +1,91 @@
+.form{
+    
+    &-input{
+        //margin-top: 2rem;
+    }
+    &-input{
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white,0.5);
+        font-family: inherit;//input默认不继承字体
+        color: inherit;//input默认不继承和文字有关的属性
+        width: 35rem;
+        display: block;
+        transition: all .3s;
+
+        border: none;
+        border-bottom: 5px solid transparent;
+
+        &:focus{//选中时显示
+            outline: none;//取消浏览器的默认蓝色边框
+            box-shadow: 0 1rem 2rem rgba($color-black,0.1);
+            border-bottom: 5px solid rgba($color-primary-dark,0.8);
+            &:invalid{//不合法的输入
+                border-bottom: 5px solid rgba($color-volcano,0.8);
+            }
+        }
+        
+        &::-webkit-input-placeholder,&::-moz-placeholder{
+            color:$color-grey-dark;
+        }
+        
+    }
+    
+    &-label{
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        display: block;
+        transition: all,0.2s;
+    }
+    &-input:placeholder-shown + &-label{//选择下一个相邻的兄弟
+        opacity: 0;//因为hidden没有有动画
+        visibility: hidden;
+        transform: translateY(-3rem);
+        
+    }
+    &-group{
+        width: 50%;
+        display: inline-block;
+        margin: 1rem;
+    }
+    &-radio-label{
+        font-size: $default-font-size;
+        cursor:pointer;//指针放在此元素上时会变成手
+        position:relative;
+        padding: 0 3rem;
+        &-btn{
+            display: inline-block;//使高度和宽度生效
+            height: 3rem;
+            width: 3rem;
+            position: absolute;
+            left: -0.6rem;
+            top:-0.5rem;
+            border: 4px solid rgba($color-primary,0.8);
+            border-radius: 50%;
+            &::after{
+                content: "";
+                display: block;
+                height: 1.3rem;
+                width: 1.3rem;
+                border-radius: 50%;
+                position: absolute;
+                top:50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                background-image: linear-gradient($color-blue-light,$color-primary);
+                opacity: 0;
+                transition: opacity .3s;
+            }
+        }
+    }
+    &-radio-input{
+        width: 0;
+        opacity: 0;
+    }
+    &-radio-input:checked + &-radio-label &-radio-label-btn::after{
+        opacity: 1;
+    }
+    
+}

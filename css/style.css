@@ -1,0 +1,144 @@
+@charset "UTF-8";
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px); }
+  80% {
+    opacity: 1;
+    transform: translateX(1rem); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(8rem); }
+  80% {
+    opacity: 1;
+    transform: translateX(-1rem); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.8rem); }
+  80% {
+    opacity: 1;
+    transform: translateY(0.2rem); } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  /* 改成10px便于计算,或者%允许用户修改 */ }
+
+body {
+  box-sizing: border-box; }
+
+/* 字体的属性通常是继承的 */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777; }
+
+.btn:link, .btn:visited {
+  text-decoration: none;
+  /*去掉下划线*/
+  padding: 1rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  /*放一个超出的*/
+  position: relative; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  /*x偏移 y偏移 模糊量*/ }
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); }
+
+.btn::after {
+  content: "";
+  /*必须指定，可以指定空*/
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  transition: all 0.4s; }
+
+.btn-white {
+  background-color: #fff;
+  color: #777; }
+  .btn-white::after {
+    background-color: #fff; }
+  .btn-white:hover::after {
+    transform: scale(2);
+    opacity: 0; }
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* 动画名 持续时间 计时函数 延迟时间 */
+  animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(145, 202, 255, 0.5), 40%, rgba(0, 62, 179, 0.9)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%); }
+  .header .logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+    .header .logo-box:hover {
+      animation-name: moveInLeft;
+      animation-duration: 1s;
+      animation-timing-function: ease-out; }
+    .header .logo-box .logo {
+      height: 3.5rem; }
+  .header .text-box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+    .header .text-box .heading-primary {
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      backface-visibility: hidden; }
+      .header .text-box .heading-primary .heading-primary-main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        /* animation-delay: 0s;
+            animation-iteration-count: 1; */ }
+      .header .text-box .heading-primary .heading-primary-sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.3rem;
+        animation-name: moveInRight;
+        animation-duration: 1s; }
+
+.row {
+  max-width: 114rem;
+  background-color: #91caff;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }

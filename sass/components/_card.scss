@@ -1,0 +1,119 @@
+@import "../abstracts/variables";
+.card{
+    perspective: 150rem;//创建透视
+    -moz-perspective: 150rem;//适配火狐浏览器
+    position: relative;
+    height: 50rem;
+    //@include clearfix; 
+    &-side{
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 2rem;
+        height: 50rem;
+        width: 100%;
+        transition: all .8s ease;
+        backface-visibility: hidden;//背面可见性
+        box-shadow: $box-shadow-2;
+        // &-front{
+        //     background-color: $color-blue-light;
+        //     &-1{}
+        //     &-2{}
+        //     &-3{}
+        // }
+        &-back{
+            transform: rotateY(180deg);
+            &-1{
+                background-image: linear-gradient(to right bottom , $color-gold-light ,30%,$color-orange);
+            }
+            &-2{
+                background-image: linear-gradient(to right bottom , $color-lime ,34%,$color-green);
+            }
+            &-3{
+                background-image: linear-gradient(to right bottom , $color-blue-light ,34%,$color-geekblue);
+            }
+        }
+    }
+    &:hover &-side-front{
+        transform: rotateY(-180deg);
+    }
+    &:hover &-side-back{
+        transform: rotateY(0deg);
+    }
+    &-picture{
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        -webkit-background-clip: polygon(0 0, 100% 0, 100% 85%,0 100%);
+        background-clip: polygon(0 0, 100% 0, 100% 85%,0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%,0 100%);
+        &-1{
+            background-image: linear-gradient(to right bottom ,$color-gold,$color-orange),
+            url(../../img/nat-5.jpg);
+        }
+        &-2{
+            background-image: linear-gradient(to right bottom ,$color-lime,$color-green),
+            url(../../img/nat-6.jpg);
+        }
+        &-3{
+            background-image: linear-gradient(to right bottom ,$color-blue-light,$color-geekblue),
+            url(../../img/nat-7.jpg);
+        }
+    }
+    &-heading{
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color:$color-white;
+        position: absolute;
+        top:12rem;
+        right:2rem;
+        &-span{
+            padding: .8rem;
+            &-1{
+                background-image: linear-gradient(to right bottom ,$color-gold,$color-orange);
+            }
+            &-2{
+                background-image: linear-gradient(to right bottom ,$color-lime,$color-green);
+            }
+            &-3{
+                background-image: linear-gradient(to right bottom ,$color-geekblue-light,$color-geekblue);
+            }
+        }
+    }
+    &-details{
+        ul{
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+            li{
+                text-align: center;
+                font-size: 1.7rem;
+                padding: 1rem;
+                &:not(:last-child){
+                    border-bottom: 1px solid $color-grey-light-1;
+                }
+            }
+            
+        }
+    }
+    &-cta{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        &-price-box{
+            color: $color-white;
+            text-align: center;
+            margin-bottom: 8rem;
+            .noly{
+                font-size: 1.4rem;
+            }
+            .price{
+                font-size: 6rem;
+                font-weight: 100;
+            }
+        }
+    }
+}

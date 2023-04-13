@@ -1,0 +1,57 @@
+@import "../abstracts/variables";
+.section-about{
+    background-color: $color-grey-light-1;
+    padding: 25rem 0;
+    margin-top: -25vh;
+}
+.section-feature{
+    margin-top: -20rem;
+    margin-bottom: 10rem;
+    padding: 20rem 0;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light,0.6),
+        rgba($color-primary-dark,0.6)
+    ),
+    url(../../img/nat-4.jpg);
+    background-size: cover;
+    transform: skewY(-7deg);
+    & > *{
+        transform: skewY(7deg)
+    }
+}
+.section-stories{
+    position: relative;
+    padding: 15rem;
+    //background-color: $color-grey-light-1;
+    @include respond(phone){
+        padding: 5rem;
+    }
+}
+.section-book{
+    padding: 15rem 5rem;
+    background-image: linear-gradient(to right bottom,$color-primary-light,$color-primary-dark);
+    .form-heading{
+        margin: 4rem;
+    }
+    .book{
+        background-image: 
+            linear-gradient(105deg,rgba($color-white,0.8) 0%,rgba($color-white,0.8) 50%, transparent 50%),
+            url(../../img/nat-10.jpg);
+        @include respond(phone){
+            background-image: 
+            linear-gradient(105deg,rgba($color-white,0.8) 0%,rgba($color-white,0.8) 70%, transparent 70%),
+            url(../../img/nat-10.jpg);
+            
+        }
+        background-size: 100%;//cover相当于100%
+        border-radius: 3px;
+        box-shadow: 0 1rem 4rem rgba($color-black,0.2);
+         
+
+        height: 50rem;
+        width: 90%;
+        margin: 0rem auto;
+        padding: 7rem;
+    }
+}

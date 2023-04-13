@@ -1,0 +1,90 @@
+@import "../abstracts/variables";
+.btn {
+    &,//link和visited不适用于button
+    &:link,
+    &:visited {
+        text-decoration: none; /*去掉下划线*/
+        padding: 1rem 4rem;
+        display: inline-block;
+        border-radius: 10rem; /*放一个超出的*/
+        position: relative;
+
+        //button element
+        cursor: pointer;
+        border: none;
+    }
+    &:hover,
+    &:focus {
+        outline: none;
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.3); /*x偏移 y偏移 模糊量*/
+    }
+    &:active{
+        transform: translateY(-1px);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.3);
+    }
+    &::after {
+        content: ""; /*必须指定，可以指定空*/
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+}
+
+.btn-white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    &::after {
+        background-color: $color-white;
+    }
+    &:hover::after {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+.btn-blue{
+    background-color: rgba($color-primary,0.9);
+    color: $color-white;
+    &::after {
+        background-color: $color-white;
+    }
+    &:hover::after {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+.btn-animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* 动画名 持续时间 计时函数 延迟时间 */
+    animation-fill-mode: backwards;
+}
+.btn-text{
+    &:link,&:visited{
+        color: $color-primary-dark;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;//非常小的情况下可以直接用px
+        font-size: $default-font-size;
+        transition: all .2s;
+    }
+    &:hover,&:active{
+        background-color: rgba($color-primary,0.9);
+        border-bottom: 1px solid $color-primary-dark;
+        color: $color-white;
+        box-shadow: .2rem 1rem 1.5rem rgba($color-primary-light,0.3);
+    }
+    &:hover{
+        transform: translateY(-2px);
+    }
+    &:active{
+        transform: translateY(1px);
+    }
+    
+}

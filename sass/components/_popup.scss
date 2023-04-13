@@ -1,0 +1,70 @@
+.popup{
+    height: 100vh;
+    width: 100vw;
+    position:fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black,0.8);
+    z-index:3000;
+    transition: all .3s;
+    //隐藏
+    opacity: 0;
+    visibility: hidden;
+    &:target{
+        opacity: 1;
+        visibility: visible;
+    }
+    &:target &-content{
+        
+        transform:translate(-50%,-50%) scale(1);
+    }
+    &-close{
+        &:link,&:visited{
+            color:$color-primary-dark;
+            position: absolute;
+            top:.4rem;
+            right: 2.5rem;
+            font-size: 4rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        &:hover{
+            color:$color-volcano;
+        }
+    }
+    
+    &-content{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        width: 75%;
+        height: 50rem;
+        background-color: $color-white;
+        box-shadow: $box-shadow-4;
+        //display: table;//使用表格布局,会为单元格分配相同高度
+        transition: all .4s;
+        transform:translate(-50%,-50%) scale(.1);
+    }
+    &-left{
+        height: 100%;
+        width: 33.333%;
+        float: left;
+        //display: table-cell;
+    }
+    &-right{
+        width: 66.666%;
+        padding: 5rem;
+        float: right;
+        //display: table-cell;
+    }
+
+    &-img{
+        display: block;
+        width: 100%;
+    }
+    &-text{
+        columns: 2;//列数
+        column-gap: 4rem;//列间距
+        column-rule: 1px solid $color-grey-light-1;
+    }
+}

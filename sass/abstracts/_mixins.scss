@@ -1,0 +1,59 @@
+@mixin clearfix {
+    //处理子元素全部浮动导致的元素塌陷
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin abs-center {
+    //元素绝对居中
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//媒体查询
+
+/*
+0-600px:    Phone
+600-900px:  平板（纵向）
+900-1200px: 平板（横向）
+1200-1800px:桌面
+1800px+:    大屏幕
+*/
+// @mixin respond-phone {
+//     @media (max-width: 600px) {
+//         //用@content代表混入时写入混入体的内容
+//         @content;
+//     }
+// }
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {
+            //600px
+            @content;
+        }
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {
+            //900px
+            @content;
+        }
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {
+            //1200px
+            @content;
+        }
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {
+            //1800px
+            @content;
+        }
+    }
+}

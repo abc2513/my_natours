@@ -1,0 +1,15 @@
+{
+  "name": "sass",
+  "version": "1.0.1",
+  "description": "1111111",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass sass:css -w",
+    "serve": "live-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^8.0.0"
+  }
+}

@@ -1,0 +1,72 @@
+
+.story{
+    min-width: 75%;
+    margin:5rem auto;
+    box-shadow: $box-shadow-2;
+    background-color: rgba($color-white,0.7);
+    border-radius: 3px;
+    padding: 6rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+    @include respond(phone){
+        padding: 3rem;
+        transform: skewX(-3deg) !important;
+    }
+    // &>*{
+    //     //因为目前的transform只能同时指定一次，下面的圆形指定了一次导致这里不生效
+    //     transform: skewX(15deg);
+    // }
+    &-shape{
+        width: 15rem;
+        height: 15rem;
+        //background-color: $color-orange;
+        float: left;
+        position: relative;
+        //1.指定形状
+        -webkit-shape-outside: circle(50% at 50% 50%);//必须指定宽高、必须浮动、必须加webkit-
+        shape-outside: circle(50% at 50% 50%);
+        //2.指定剪裁
+        //需要剪裁，不然形状变了，视觉背景还是方形
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg);
+        @include respond(phone){
+            transform: translateX(-3rem) skewX(3deg) !important;
+        }
+        img{
+            min-height: 100% !important;
+            min-width: 100% !important;
+            height: 100%;
+            transform: translateX(-12%);
+            transition: all .5s;
+        }
+    }
+    &-text{
+        transform: skewX(12deg);
+        @include respond(phone){
+            transform: skewX(-3deg) !important;
+        }
+    }
+    &-caption{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,100%);
+        color: $color-white;
+        //background-color: rgba($color-cyan,0.5);
+        //padding: 5rem;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s;
+        text-transform: uppercase;
+
+    }
+    &:hover &-caption{
+        opacity: 1;
+        transform: translate(-50%,-50%);
+    }
+    &:hover img{
+        transform: scale(1.2);
+        filter: blur(3px) brightness(80%);
+    }
+}
