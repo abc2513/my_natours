@@ -336,13 +336,13 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 .card-picture-1 {
-  background-image: linear-gradient(to right bottom, #faad14, #fa8c16), url(../../img/nat-5.jpg);
+  background-image: linear-gradient(to right bottom, #faad14, #fa8c16), url(../img/nat-5.jpg);
 }
 .card-picture-2 {
-  background-image: linear-gradient(to right bottom, #a0d911, #52c41a), url(../../img/nat-6.jpg);
+  background-image: linear-gradient(to right bottom, #a0d911, #52c41a), url(../img/nat-6.jpg);
 }
 .card-picture-3 {
-  background-image: linear-gradient(to right bottom, #69b1ff, #2f54eb), url(../../img/nat-7.jpg);
+  background-image: linear-gradient(to right bottom, #69b1ff, #2f54eb), url(../img/nat-7.jpg);
 }
 .card-heading {
   font-size: 2.8rem;
@@ -922,7 +922,7 @@ body {
   margin-top: -20rem;
   margin-bottom: 10rem;
   padding: 20rem 0;
-  background-image: linear-gradient(to right bottom, rgba(145, 202, 255, 0.6), rgba(0, 62, 179, 0.6)), url(../../img/nat-4.jpg);
+  background-image: linear-gradient(to right bottom, rgba(145, 202, 255, 0.6), rgba(0, 62, 179, 0.6)), url(../img/nat-4.jpg);
   background-size: cover;
   transform: skewY(-7deg);
 }
@@ -948,7 +948,7 @@ body {
   margin: 4rem;
 }
 .section-book .book {
-  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(../../img/nat-10.jpg);
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(../img/nat-10.jpg);
   background-size: 100%;
   border-radius: 3px;
   box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2);
@@ -959,7 +959,7 @@ body {
 }
 @media (max-width: 37.5em) {
   .section-book .book {
-    background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 70%, transparent 70%), url(../../img/nat-10.jpg);
+    background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 70%, transparent 70%), url(../img/nat-10.jpg);
   }
 }
 
